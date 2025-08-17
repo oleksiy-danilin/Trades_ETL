@@ -1,0 +1,7 @@
+,0
+rows,300
+rows_valid_ts,300
+nulls_per_column,"{'timestamp': 0, 'user_id': 0, 'client_type': 0, 'symbol': 0, 'side': 0, 'quantity': 0, 'price': 0}"
+unique_symbols,6
+date_min,2023-01-01 10:27:00
+date_max,2023-05-02 00:22:00

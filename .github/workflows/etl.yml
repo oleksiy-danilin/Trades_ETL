@@ -1,0 +1,26 @@
+name: ETL + EDA
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt
+      - name: Run EDA + ETL
+        run: python main.py --run-eda
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: outputs
+          path: |
+            agg_result.db
+            output/
+            docs/
