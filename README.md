@@ -5,7 +5,7 @@
 #### Project Goal
 Implement an ETL pipeline to process client trade data from CSV, aggregate results, and store them in a database. Demonstrate CI/CD setup and readiness for scaling.
 
-### Project Structure
+#### Project Structure
 trades_etl_full_repo/
 ├─ data/ # CSV templates or example datasets
 ├─ output/ # ETL results, reports, top clients
