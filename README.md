@@ -44,8 +44,11 @@ Reports and top clients are created in output/
 ADDITIONAL COMPONENTS
 ---------------------
 EDA: Automatic Exploratory Data Analysis checks CSV quality and detects outliers or missing values.
+
 HTML-report: Interactive HTML report visualizes distributions and aggregations for quick data quality checks.
+
 Docker: Containerization ensures ETL can run reliably even if data volume increases sharply, guaranteeing reproducibility across environments.
+
 Tableau Dashboard: Built on cleaned data after EDA. Prototype interactive dashboard instead of static plots.
 
 DATA AGGREGATION
