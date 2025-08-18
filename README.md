@@ -24,7 +24,7 @@ trades_etl_full_repo/
 └─ requirements.txt # Python dependencies
 ```
 
-№№№№INSTALL DEPENDENCIES
+####INSTALL DEPENDENCIES
 --------------------
 pip install -r requirements.txt
 
