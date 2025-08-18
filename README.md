@@ -6,23 +6,23 @@
 Implement an ETL pipeline to process client trade data from CSV, aggregate results, and store them in a database. Demonstrate CI/CD setup and readiness for scaling.
 
 #### Project Structure
-'''
+```
 trades_etl_full_repo/
-├─ data/                  # CSV templates or example datasets
-├─ output/                # ETL results, reports, top clients
+├─ data/ # CSV templates or example datasets
+├─ output/ # ETL results, reports, top clients
 ├─ etl/
-│  ├─ extract.py          # data extraction module
-│  ├─ transform.py        # transformation and aggregation module
-│  ├─ load.py             # load module into DB
+│ ├─ extract.py # data extraction module
+│ ├─ transform.py # transformation and aggregation module
+│ ├─ load.py # load module into DB
 ├─ reports/
-│  └─ eda_report.html     # automatic EDA report
-├─ Dockerfile             # for containerizing ETL
+│ └─ eda_report.html # automatic EDA report
+├─ Dockerfile # for containerizing ETL
 ├─ .github/workflows/
-│  └─ etl_pipeline.yml    # CI/CD via GitHub Actions
-├─ agg_result.db          # SQLite DB with aggregated results
+│ └─ etl_pipeline.yml # CI/CD via GitHub Actions
+├─ agg_result.db # SQLite DB with aggregated results
 ├─ README.md
-└─ requirements.txt       # Python dependencies
-'''
+└─ requirements.txt # Python dependencies
+```
 
 **Что внутри**
 - `data/trades.csv` — демо-датасет
