@@ -1,0 +1,38 @@
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+.env
+*.env
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Data and output folders
+data/
+output/
+
+# Logs
+*.log
+
+# IDE/editor folders
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Docker
+*.dockerignore
+*.tar
+
+
+
