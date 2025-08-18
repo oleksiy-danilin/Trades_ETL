@@ -8,19 +8,34 @@ Implement an ETL pipeline to process client trade data from CSV, aggregate resul
 #### Project Structure
 trades_etl_full_repo/
 ├─ data/ # CSV templates or example datasets
+
 ├─ output/ # ETL results, reports, top clients
+
 ├─ etl/
 │ ├─ extract.py # data extraction module
 │ ├─ transform.py # transformation and aggregation module
 │ ├─ load.py # load module into DB
+
 ├─ reports/
 │ └─ eda_report.html # automatic EDA report
+
 ├─ Dockerfile # for containerizing ETL
+
 ├─ .github/workflows/
 │ └─ etl_pipeline.yml # CI/CD via GitHub Actions
 ├─ agg_result.db # SQLite DB with aggregated results
+
 ├─ README.md
+
 └─ requirements.txt # Python dependencies
+
+**Что внутри**
+- `data/trades.csv` — демо-датасет
+- `src/` — модули ETL (`extract.py`, `transform.py`, `load.py`) и `eda.py`.
+- `main.py` — один вход: запускает EDA (опция) и весь ETL.
+- `output/` — агрегаты, графики и Top-3 bronze клиентов (`csv` и `xlsx`).
+- `docs/eda_report.html` — интерактивный EDA‑отчёт (готов для GitHub Pages).
+- Dockerfile, GitHub Actions workflow, requirements.txt.
 
 ### Running ETL Manually
 Install dependencies:
@@ -144,10 +159,6 @@ pip install -r requirements.txt
 python main.py --run-eda
 # Откройте: docs/eda_report.html
 ```
-
-## Замените датасет
-Подставьте ваш CSV как `data/trades.csv` **с теми же колонками**:
-`timestamp,user_id,client_type,symbol,side,quantity,price` (поддержан формат даты `DD/MM/YYYY HH:MM`).
 
 ## Docker
 ```bash
