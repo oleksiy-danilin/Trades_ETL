@@ -31,25 +31,30 @@ pip install -r requirements.txt
 #### Run ETL
 -------
 python etl/extract.py
+
 python etl/transform.py
+
 python etl/load.py
+
 Results are saved in agg_result.db and output/top_clients.xlsx (or .csv).
 
 #### CI/CD
 -----
 GitHub Actions automatically triggers the ETL on push or workflow_dispatch.
+
 Pipeline runs full sequence: extract -> transform -> load
+
 Reports and top clients are created in output/
 
 #### Additional Components
 ---------------------
-EDA: Automatic Exploratory Data Analysis checks CSV quality and detects outliers or missing values.
+EDA: Automatic Exploratory Data Analysis checks CSV quality and detects outliers, missing values, and/or inappropriate data formats.
 
-HTML-report: Interactive HTML report visualizes distributions and aggregations for quick data quality checks.
+HTML-report: Interactive HTML report visualizes distributions and aggregations for quick data quality checks, replacing static in-python charts (plotly).
 
-Docker: Containerization ensures ETL can run reliably even if data volume increases sharply, guaranteeing reproducibility across environments.
+Docker: Added for demonstrative purposes, despite the data volume is minor. Containerization ensures ETL can run reliably even if data volume increases sharply, guaranteeing reproducibility across environments.
 
-Tableau Dashboard: Built on cleaned data after EDA. Prototype interactive dashboard instead of static plots.
+Tableau Dashboard: Built on EDA-cleaned. Prototype interactive dashboard instead of isolated static plots. Public demo version: https://public.tableau.com/app/profile/oleksiy.danilin/viz/TradePerformanceDashboard_17548689918890/TRADEPERFORMANCEDASHBOARD 
 
 #### Data Aggregation
 ----------------
@@ -67,14 +72,14 @@ Tableau Dashboard: Built on cleaned data after EDA. Prototype interactive dashbo
 
 #### Reporting
 ---------
-- Build charts from aggregated data (optional)
+- Build charts from aggregated data (replaced by the Tableau dashboard, which features interactive filters and complex feature analysis)
 - Select top-3 bronze clients by total_volume and total_pnl
 - Save results: output/top_clients.xlsx or .csv
 
 #### Scalability
 -----------
 ETL pipeline designed to handle larger volumes in the future (>100M rows):
-- Storage: migrate from SQLite to PostgreSQL / BigQuery / Snowflake
+- Storage: migrate from SQLite to BigQuery (GCP) or Snowflake (AWS)
 - Orchestration: Airflow, Prefect, or dbt for DAG management
 - Distributed processing: Spark or Dask
 - Monitoring: track execution time, processed records, transformation errors, missing data
