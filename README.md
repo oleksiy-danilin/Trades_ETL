@@ -1,4 +1,4 @@
-№№Trades##
+##Trades##
 
 # Trades ETL Pipeline
 
