@@ -24,24 +24,24 @@ trades_etl_full_repo/
 └─ requirements.txt # Python dependencies
 ```
 
-####INSTALL DEPENDENCIES
+#### Install Dependencies
 --------------------
 pip install -r requirements.txt
 
-RUN ETL
+#### Run ETL
 -------
 python etl/extract.py
 python etl/transform.py
 python etl/load.py
 Results are saved in agg_result.db and output/top_clients.xlsx (or .csv).
 
-CI/CD
+#### CI/CD
 -----
 GitHub Actions automatically triggers the ETL on push or workflow_dispatch.
 Pipeline runs full sequence: extract -> transform -> load
 Reports and top clients are created in output/
 
-ADDITIONAL COMPONENTS
+#### Additional Components
 ---------------------
 EDA: Automatic Exploratory Data Analysis checks CSV quality and detects outliers or missing values.
 
@@ -51,7 +51,7 @@ Docker: Containerization ensures ETL can run reliably even if data volume increa
 
 Tableau Dashboard: Built on cleaned data after EDA. Prototype interactive dashboard instead of static plots.
 
-DATA AGGREGATION
+#### Data Aggregation
 ----------------
 - Convert timestamp to week_start_date (Monday)
 - Aggregate by:
@@ -65,13 +65,13 @@ DATA AGGREGATION
   * total_pnl (optional)
 - Save results in agg_trades_weekly table in agg_result.db
 
-REPORTING
+#### Reporting
 ---------
 - Build charts from aggregated data (optional)
 - Select top-3 bronze clients by total_volume and total_pnl
 - Save results: output/top_clients.xlsx or .csv
 
-SCALABILITY
+#### Scalability
 -----------
 ETL pipeline designed to handle larger volumes in the future (>100M rows):
 - Storage: migrate from SQLite to PostgreSQL / BigQuery / Snowflake
