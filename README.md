@@ -84,4 +84,4 @@ ETL pipeline designed to handle larger volumes in the future (>100M rows):
 - Distributed processing: Spark or Dask
 - Monitoring: track execution time, processed records, transformation errors, missing data
 - Data storage: raw CSVs in S3/Blob, aggregated results in SQL/NoSQL
-See Scalability_Overview.pdf for details
+See ETL_Scaling_Trades_RU.pdf for details
