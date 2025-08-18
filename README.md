@@ -24,13 +24,47 @@ trades_etl_full_repo/
 └─ requirements.txt # Python dependencies
 ```
 
-**Что внутри**
-- `data/trades.csv` — демо-датасет
-- `src/` — модули ETL (`extract.py`, `transform.py`, `load.py`) и `eda.py`.
-- `main.py` — один вход: запускает EDA (опция) и весь ETL.
-- `output/` — агрегаты, графики и Top-3 bronze клиентов (`csv` и `xlsx`).
-- `docs/eda_report.html` — интерактивный EDA‑отчёт (готов для GitHub Pages).
-- Dockerfile, GitHub Actions workflow, requirements.txt.
+Install dependencies
+''
+pip install -r requirements.txt
+Run ETL
+python etl/extract.py
+python etl/transform.py
+python etl/load.py
+Results are saved in agg_result.db and output/top_clients.xlsx (or .csv).
+CI/CD
+GitHub Actions automatically triggers the ETL on push or workflow_dispatch.
+The pipeline runs the full sequence: extract → transform → load.
+After execution, reports and top clients are created in output/.
+Additional Components: EDA, HTML-report, Docker, Tableau Dashboard
+EDA: Automatic Exploratory Data Analysis checks CSV quality and detects outliers or missing values.
+HTML-report: Interactive HTML report visualizes distributions and aggregations for quick data quality checks.
+Docker: Containerization ensures ETL can run reliably even if data volume increases sharply, guaranteeing reproducibility across environments.
+Tableau Dashboard: Built on cleaned data after EDA. This interactive dashboard serves as a prototype for more modern “live” dashboard solutions instead of static plots.
+Data Aggregation
+Convert timestamp to week_start_date (Monday).
+Aggregate by:
+week_start_date
+client_type (gold, silver, bronze)
+user_id
+symbol
+Compute:
+total_volume
+trade_count
+total_pnl (optional)
+Save results in agg_trades_weekly table in agg_result.db.
+Reporting
+Build charts from aggregated data (optional).
+Select top-3 bronze clients by total_volume and total_pnl.
+Save results: output/top_clients.xlsx or .csv.
+Scalability
+The ETL pipeline is designed to handle larger volumes in the future. For datasets >100M rows:
+Storage: migrate from SQLite to PostgreSQL / BigQuery / Snowflake.
+ETL orchestration: use Airflow, Prefect, or dbt for DAG management.
+Distributed processing: leverage Spark or Dask.
+Monitoring: track ETL metrics: execution time, processed records, transformation errors, missing data.
+Data storage: raw CSVs in S3/Blob, aggregated results in SQL/NoSQL databases.
+A separate PDF (Scalability_Overview.pdf) provides detailed explanations of these cloud-based scaling options.
 
 ### Running ETL Manually
 Install dependencies:
