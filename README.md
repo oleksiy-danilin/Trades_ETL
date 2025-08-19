@@ -54,7 +54,7 @@ HTML-report: Interactive HTML report visualizes distributions and aggregations f
 
 Docker: Added for demonstrative purposes, despite the data volume is minor. Containerization ensures ETL can run reliably even if data volume increases sharply, guaranteeing reproducibility across environments.
 
-Tableau Dashboard: Built on EDA-cleaned. Prototype interactive dashboard instead of isolated static plots. Public demo version: https://public.tableau.com/app/profile/oleksiy.danilin/viz/TradePerformanceDashboard_17548689918890/TRADEPERFORMANCEDASHBOARD 
+Tableau Dashboard: Built on an EDA-cleaned database. Prototype an interactive dashboard instead of isolated static plots. Public demo version: https://public.tableau.com/app/profile/oleksiy.danilin/viz/TradePerformanceDashboard_17548689918890/TRADEPERFORMANCEDASHBOARD 
 
 #### Data Aggregation
 ----------------
@@ -84,4 +84,4 @@ ETL pipeline designed to handle larger volumes in the future (>100M rows):
 - Distributed processing: Spark or Dask
 - Monitoring: track execution time, processed records, transformation errors, missing data
 - Data storage: raw CSVs in S3/Blob, aggregated results in SQL/NoSQL
-See ETL_Scaling_Trades_RU.pdf for details
+- See ETL_Scaling_Trades_RU.pdf for details
