@@ -50,9 +50,9 @@ Reports and top clients are created in output/
 ---------------------
 EDA: Automatic Exploratory Data Analysis checks CSV quality and detects outliers, missing values, and/or inappropriate data formats.
 
-HTML-report: Interactive HTML report visualizes distributions and aggregations for quick data quality checks, replacing static in-python charts (plotly).
+HTML-report: Interactive HTML report visualizes distributions and aggregations for quick data quality checks. Check it at: https://oleksiy-danilin.github.io/Trades_ETL/eda_report.html
 
-Docker: Added for demonstrative purposes, despite the data volume is minor. Containerization ensures ETL can run reliably even if data volume increases sharply, guaranteeing reproducibility across environments.
+Docker: Added for demonstrative purposes, although the data volume is small. Containerization ensures ETL can run reliably even if data volume increases sharply, guaranteeing reproducibility across environments.
 
 Tableau Dashboard: Built on an EDA-cleaned database. Prototype an interactive dashboard instead of isolated static plots. Public demo version: https://public.tableau.com/app/profile/oleksiy.danilin/viz/TradePerformanceDashboard_17548689918890/TRADEPERFORMANCEDASHBOARD 
 
