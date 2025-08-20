@@ -1,4 +1,3 @@
---------------------
 # Trades ETL Pipeline
 
 ## English Version
@@ -28,15 +27,11 @@ trades_etl_full_repo/
 └─ requirements.txt       # Python dependencies
 ```
 
----
-
 ## Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
-
----
 
 ## Run ETL Pipeline
 
@@ -50,8 +45,6 @@ python etl/load.py
 
 Results are saved in `agg_result.db` and `output/top_clients.xlsx` (or `.csv`).
 
----
-
 ## Run EDA
 
 Generate an interactive EDA report from a CSV file:
@@ -64,15 +57,11 @@ python etl/eda.py data/trades_sample.csv
 - Reports contain interactive Plotly charts for data distributions, aggregations, and trade analysis  
 - Public hosted report: [EDA Report](https://oleksiy-danilin.github.io/Trades_ETL/eda_report.html)
 
----
-
 ## CI/CD
 
 - GitHub Actions automatically triggers the ETL on **push** or **workflow_dispatch**  
 - Full sequence executed: `extract → transform → load`  
 - Reports and top clients are created in `output/`
-
----
 
 ## Additional Components
 
@@ -81,8 +70,6 @@ python etl/eda.py data/trades_sample.csv
 - **Docker:** Ensures ETL runs reliably and reproducibly, even if data volume increases sharply  
 - **Tableau Dashboard:** Interactive dashboard prototype built on EDA-cleaned database.  
   Public demo version: [Trade Performance Dashboard](https://public.tableau.com/app/profile/oleksiy.danilin/viz/TradePerformanceDashboard_17548689918890/TRADEPERFORMANCEDASHBOARD)
-
----
 
 ## Data Aggregation
 
@@ -101,15 +88,11 @@ python etl/eda.py data/trades_sample.csv
 
 Save results in `agg_trades_weekly` table in `agg_result.db`.
 
----
-
 ## Reporting
 
 - Interactive charts from aggregated data (via HTML EDA report)  
 - Top 3 bronze clients selected by `total_volume` and `total_pnl`  
 - Saved results in `output/top_clients.xlsx` or `.csv`
-
----
 
 ## Scalability
 
@@ -122,4 +105,3 @@ ETL pipeline designed to handle larger volumes in the future (>100M rows):
 - **Data storage:** raw CSVs in S3/Blob, aggregated results in SQL/NoSQL  
 
 See `ETL_Scaling_Trades_RU.pdf` for details.
-
