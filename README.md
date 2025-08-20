@@ -25,7 +25,7 @@ trades_etl_full_repo/
 ```
 
 #### Install Dependencies
-
+-------
 pip install -r requirements.txt
 
 
@@ -41,10 +41,6 @@ python etl/load.py
 
 Results are saved in agg_result.db and output/top_clients.xlsx (or .csv).
 
-
-#### Run ETL
--------
-Run each step of the ETL manually:
 
 #### Run EDA
 -------
