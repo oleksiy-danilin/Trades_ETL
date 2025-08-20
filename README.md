@@ -38,6 +38,13 @@ python etl/load.py
 
 Results are saved in agg_result.db and output/top_clients.xlsx (or .csv).
 
+Run ETL Pipeline
+Run each step of the ETL manually:
+python etl/extract.py
+python etl/transform.py
+python etl/load.py
+Results are saved in agg_result.db and output/top_clients.xlsx (or .csv).
+
 #### CI/CD
 -----
 GitHub Actions automatically triggers the ETL on push or workflow_dispatch.
