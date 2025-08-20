@@ -1,6 +1,6 @@
 # Trades ETL Pipeline
 
-## English Version
+#### End-to-end ETL pipeline with CI/CD, interactive EDA reports, and Tableau dashboard for trade data.
 
 ## Project Goal
 
