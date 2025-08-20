@@ -29,7 +29,7 @@ trades_etl_full_repo/
 ```bash
 pip install -r requirements.txt
 
-### Run ETL Pipeline
+
 
 Run each step of the ETL manually:
 
