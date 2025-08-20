@@ -25,8 +25,92 @@ trades_etl_full_repo/
 ```
 
 #### Install Dependencies
---------------------
+
+```bash
 pip install -r requirements.txt
+
+### Run ETL Pipeline
+
+Run each step of the ETL manually:
+
+```bash
+python etl/extract.py
+python etl/transform.py
+python etl/load.py
+```
+
+Results are saved in `agg_result.db` and `output/top_clients.xlsx` (or `.csv`).
+
+---
+
+### Run EDA
+
+Generate an interactive EDA report from a CSV file:
+
+```bash
+python etl/eda.py data/trades_sample.csv
+```
+
+- HTML report saved to `output/eda_report.html` and `docs/eda_report.html`
+- Reports contain interactive Plotly charts for data distributions, aggregations, and trade analysis.
+
+---
+
+### CI/CD
+
+- GitHub Actions automatically triggers the ETL on **push** or **workflow_dispatch**
+- Full sequence executed: `extract → transform → load`
+- Reports and top clients are created in `output/`
+
+---
+
+### Data Aggregation
+
+- Convert `timestamp` to `week_start_date` (Monday)
+
+**Aggregate by:**
+- `week_start_date`
+- `client_type` (gold, silver, bronze)
+- `user_id`
+- `symbol`
+
+**Compute:**
+- `total_volume`
+- `trade_count`
+- `total_pnl` (optional)
+
+Save results in `agg_trades_weekly` table in `agg_result.db`.
+
+---
+
+### Reporting
+
+- Interactive charts from aggregated data (via HTML EDA report)
+- Top 3 bronze clients selected by `total_volume` and `total_pnl`
+- Saved results in `output/top_clients.xlsx` or `.csv`
+
+---
+
+### Additional Components
+
+- **Docker:** Ensures ETL runs reliably and reproducibly, even if data volume increases sharply
+- **Tableau Dashboard:** Interactive dashboard prototype built on EDA-cleaned database
+- **EDA HTML Report:** Replaces static Python plots with interactive Plotly charts for quick exploration
+
+---
+
+### Scalability
+
+ETL designed to handle larger datasets (>100M rows):
+
+- **Storage:** Migrate from SQLite to BigQuery (GCP) or Snowflake (AWS)
+- **Orchestration:** Airflow, Prefect, or dbt for DAG management
+- **Distributed processing:** Spark or Dask
+- **Monitoring:** Track execution time, processed records, transformation errors, missing data
+- **Data storage:** Raw CSVs in S3/Blob, aggregated results in SQL/NoSQL
+
+See `ETL_Scaling_Trades_RU.pdf` for details.
+
 
 #### Run ETL
 -------
